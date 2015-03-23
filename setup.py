@@ -20,7 +20,7 @@ CLASSIFIERS = [
 
 def read(fname):
     readme_file = os.path.join(os.path.dirname(__file__), fname)
-    return codecs.decode(os.popen('[ -x "$(which pandoc 2>/dev/null)" ] && pandoc -t rst {0} || cat {0}'.format(readme_file)).read(), 'utf-8')
+    return codecs.decode(os.popen('[ -x "$(which pandoc 2>/dev/null)" ] && pandoc -t rst {0} || cat {0}'.format(readme_file)).read(), 'ascii', errors='ignore')
 
 
 setup(
