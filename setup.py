@@ -1,6 +1,7 @@
 import os
 from setuptools import setup, find_packages
 from ws4redis import __version__
+import codecs
 
 DESCRIPTION = 'Websocket support for Django using Redis as datastore'
 
@@ -19,7 +20,7 @@ CLASSIFIERS = [
 
 def read(fname):
     readme_file = os.path.join(os.path.dirname(__file__), fname)
-    return os.popen('[ -x "$(which pandoc 2>/dev/null)" ] && pandoc -t rst {0} || cat {0}'.format(readme_file)).read()
+    return codecs.decode(os.popen('[ -x "$(which pandoc 2>/dev/null)" ] && pandoc -t rst {0} || cat {0}'.format(readme_file)).read(), 'utf-8')
 
 
 setup(
